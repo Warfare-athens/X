@@ -41,7 +41,7 @@ app.use("/api/notifications", notificationRoutes);
 
 app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
-app.use(cors({ origin: 'https://x-khaki-kappa.vercel.app/' }));
+app.use(cors({ origin: 'https://x-khaki.vercel.app/' }));
 
 
 
