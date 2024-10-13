@@ -35,18 +35,11 @@ app.use("/api/posts", postRoutes);
 app.use("/api/notifications", notificationRoutes);
 
 app.use(express.static(path.join(__dirname, "/frontend/dist")));
-<<<<<<< HEAD
+
 
 app.get("*", (req, res) => {
 	res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
 });
-
-=======
-
-app.get("*", (req, res) => {
-	res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
-});
->>>>>>> 50de36bcc0d2a80bef8cbbcaf74f2acc5a651336
 
 app.listen(PORT, () => {
 	console.log(`Server is running on port ${PORT}`);
