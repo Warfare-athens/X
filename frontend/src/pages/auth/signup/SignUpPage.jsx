@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { backendUrl } from "@/constants";
 
 import XSvg from "../../../components/svgs/X";
 
@@ -23,7 +24,7 @@ const SignUpPage = () => {
 	const { mutate, isError, isPending, error } = useMutation({
 		mutationFn: async ({ email, username, fullName, password }) => {
 			try {
-				const res = await fetch("/api/auth/signup", {
+				const res = await fetch(`${backendUrl}/api/auth/signup`, {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
