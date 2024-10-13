@@ -1,5 +1,4 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { backendUrl } from "@/constants";
 
 
 import HomePage from "./pages/home/HomePage";
@@ -24,7 +23,7 @@ function App() {
 		queryKey: ["authUser"],
 		queryFn: async () => {
 			try {
-				const res = await fetch(`${backendUrl}/api/auth/me`);
+				const res = await fetch(`/api/auth/me`);
 				const data = await res.json();
 				if (data.error) return null;
 				if (!res.ok) {

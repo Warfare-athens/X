@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { backendUrl } from "@/constants";
 
 import useFollow from "../../hooks/useFollow";
 
@@ -12,7 +11,7 @@ const RightPanel = () => {
 		queryKey: ["suggestedUsers"],
 		queryFn: async () => {
 			try {
-				const res = await fetch(`${backendUrl}/api/users/suggested`);
+				const res = await fetch(`/api/users/suggested`);
 				const data = await res.json();
 				if (!res.ok) {
 					throw new Error(data.error || "Something went wrong!");
