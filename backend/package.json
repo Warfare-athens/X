@@ -4,10 +4,11 @@
   "description": "",
   "main": "server.js",
  "scripts": {
-		"dev":  "nodemon backend/server.js",
-		"start": " node backend/server.js",
-		"build": "npm install "
-	},
+  "dev": "nodemon backend/server.js",
+  "start": "node backend/server.js",
+  "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+},
+
   "author": "",
   "type": "module",
   "license": "ISC",
