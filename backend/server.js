@@ -39,19 +39,17 @@ app.use("/api/users", userRoutes);
 app.use("/api/posts", postRoutes);
 app.use("/api/notifications", notificationRoutes);
 
-app.use(express.static(path.join(__dirname, "/frontend/dist")));
-
+app.use(express.static(path.join(__dirname, "frontend/dist")));
 
 const corsOptions = {
-	origin: process.env.NODE_ENV === 'production' ? 'https://your-vercel-app.vercel.app' : '*',
-	credentials: true,
+	origin: true, // This allows any origin, including localhost and Vercel
+	credentials: true, // Allow cookies to be sent with requests
   };
-app.use(cors(corsOptions));
-
-app.get("*", (req, res) => {
-	res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+  app.use(cors(corsOptions));
+  
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
 });
-
 
 
 app.listen(PORT, () => {
